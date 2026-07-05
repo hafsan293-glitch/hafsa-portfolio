@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Hafsa Noor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+</head>
+<body>
+<div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursorRing"></div>
+<header id="header"><nav class="nav-inner">
+    <a href="index.html" class="logo"><svg class="logo-svg" viewBox="0 0 60 40"><text x="50%" y="75%" text-anchor="middle" class="logo-svg-text">HN</text><rect x="1" y="1" width="58" height="38" class="logo-rect"/></svg></a>
+    <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li><li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li><li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn"><span></span><span></span></button>
+</nav></header>
+<div class="fullscreen-menu" id="fullscreenMenu"><div class="menu-bg"></div>
+    <nav class="menu-nav">
+        <a href="index.html" class="menu-link">Home<span class="menu-num">01</span></a><a href="about.html" class="menu-link">About<span class="menu-num">02</span></a>
+        <a href="skills.html" class="menu-link">Skills<span class="menu-num">03</span></a><a href="projects.html" class="menu-link">Projects<span class="menu-num">04</span></a>
+        <a href="contact.html" class="menu-link">Contact<span class="menu-num">05</span></a>
+    </nav>
+    <div class="menu-footer"><a href="mailto:hafsan293@gmail.com">hafsan293@gmail.com</a><a href="https://github.com" target="_blank">GitHub</a></div>
+</div>
+
+<section class="page-hero">
+    <div class="page-hero-bg"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&q=80" alt="contact"><div class="page-hero-overlay"></div></div>
+    <p class="page-eyebrow">Let's Connect</p><h1>Contact</h1><p>Open for collaborations & opportunities</p>
+</section>
+
+<section class="page-content">
+    <div class="contact-layout">
+        <div class="contact-left gsap-reveal">
+            <span class="section-eyebrow">Reach Out</span>
+            <h2>Get In Touch</h2>
+            <p>Feel free to reach out for collaborations, project inquiries, or just a friendly hello! I'll get back to you as soon as possible.</p>
+            <div class="contact-items">
+                <div class="c-item"><i class="ti ti-mail"></i><p>hafsan293@gmail.com</p></div>
+                <div class="c-item"><i class="ti ti-phone"></i><p>0325 4345697</p></div>
+                <div class="c-item"><i class="ti ti-brand-linkedin"></i><p>linkedin.com/in/hafsanoor</p></div>
+                <div class="c-item"><i class="ti ti-brand-github"></i><p>github.com/HafsaNoor</p></div>
+            </div>
+        </div>
+        <div class="contact-right gsap-reveal">
+            <h3>Send a Message</h3>
+            <form>
+                <div class="f-row">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit"><i class="ti ti-send"></i> Send Message</button>
+                <script>
+document.querySelector('form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const inputs = document.querySelectorAll('form input, form textarea');
+    const name = inputs[0].value;
+    const email = inputs[1].value;
+    const subject = inputs[2].value;
+    const message = inputs[3].value;
+    
+    const response = await fetch('http://localhost:8000/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name, email, subject, message})
+    });
+    
+    const data = await response.json();
+    alert('Message sent successfully!');
+});
+</script>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-brand"><svg class="footer-logo-svg" viewBox="0 0 80 50"><text x="50%" y="72%" text-anchor="middle" class="footer-logo-text">HN</text><rect x="1" y="1" width="78" height="48" class="footer-logo-rect"/></svg><p>Software Engineering Student</p></div>
+        <div class="footer-links-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="skills.html">Skills</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+        <div class="footer-links-col"><h4>Connect</h4><a href="mailto:hafsan293@gmail.com">hafsan293@gmail.com</a><a href="https://github.com" target="_blank">GitHub</a><a href="https://linkedin.com" target="_blank">LinkedIn</a><a href="tel:03254345697">0325 4345697</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Hafsa Noor. All rights reserved.</span></div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+<script>
+document.querySelector('form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const inputs = document.querySelectorAll('form input, form textarea');
+    const name = inputs[0].value;
+    const email = inputs[1].value;
+    const subject = inputs[2].value;
+    const message = inputs[3].value;
+    
+    try {
+        const response = await fetch('http://localhost:8000/contact', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({name, email, subject, message})
+        });
+        
+        const data = await response.json();
+        alert('Message sent successfully! ✅');
+        document.querySelector('form').reset();
+    } catch(error) {
+        alert('Something went wrong! ❌');
+    }
+});
+</script>
+</body></html>
